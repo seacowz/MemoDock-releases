@@ -23,3 +23,7 @@ The [latest release](https://github.com/seacowz/MemoDock-releases/releases/lates
 - **Windows 10 or 11 (x64):** `MemoDock-<version>-windows-x64-setup.exe`. The installer is not signed: at the SmartScreen warning, choose More info, then Run anyway.
 - **macOS 12 or later (Apple silicon):** `MemoDock-<version>-macos-arm64.dmg`. The app is not notarized: the first time, right-click it and choose Open.
 - **Ubuntu 22.04 or later (x64):** `memodock_<version>_amd64.deb`. Open it with App Center, or run `sudo apt install ./memodock_<version>_amd64.deb`.
+
+## Bugs and feature requests
+
+Found a bug or have an idea? [Open an issue](https://github.com/seacowz/MemoDock-releases/issues), and please include your system and MemoDock version.
