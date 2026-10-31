@@ -1,0 +1,250 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MemoDock – Markdown notes on your own disk</title>
+<meta name="description" content="MemoDock is a note-taking app for Windows, macOS and Linux. Your notes are Markdown files in a folder on your own disk, edited in a rich text editor.">
+<link rel="icon" href="memodock.svg" type="image/svg+xml">
+<link rel="icon" href="memodock.png" type="image/png">
+<meta property="og:title" content="MemoDock">
+<meta property="og:description" content="Markdown notes on your own disk, with a rich text editor. For Windows, macOS and Linux.">
+<meta property="og:image" content="https://memodock.net/memodock.png">
+<style>
+  :root {
+    --brand: #896af4;
+    --brand-deep: #27115f;
+    --brand-tint: #f1eeff;
+    --bg: #ffffff;
+    --bg-soft: #f7f6fb;
+    --ink: #1d1d22;
+    --ink2: #5b5f6b;
+    --line: #e7e7ec;
+    --card: #ffffff;
+    --button-ink: #ffffff;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --brand: #9b7bff;
+      --brand-tint: #2a2148;
+      --bg: #131218;
+      --bg-soft: #1b1a22;
+      --ink: #ecebf2;
+      --ink2: #a6a4b3;
+      --line: #2e2c38;
+      --card: #1e1d26;
+    }
+  }
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font: 16px/1.6 system-ui, -apple-system, "Segoe UI", Roboto, Ubuntu, sans-serif;
+  }
+  a { color: var(--brand); }
+  .wrap { max-width: 1040px; margin: 0 auto; padding: 0 24px; }
+
+  header.hero {
+    background:
+      radial-gradient(1200px 400px at 50% -120px, var(--brand-tint), transparent 70%),
+      var(--bg);
+    padding: 72px 0 56px;
+    text-align: center;
+  }
+  .hero img { width: 112px; height: 112px; }
+  .hero h1 { font-size: 48px; line-height: 1.1; margin: 16px 0 8px; letter-spacing: -0.02em; }
+  .hero .tagline { font-size: 22px; color: var(--ink2); margin: 0 auto; max-width: 640px; }
+  .hero .actions { margin-top: 32px; display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+  .button {
+    display: inline-flex; align-items: center; gap: 10px;
+    padding: 14px 24px; border-radius: 12px;
+    font-weight: 600; font-size: 17px; text-decoration: none;
+    background: var(--brand); color: var(--button-ink);
+    box-shadow: 0 6px 20px rgba(137, 106, 244, 0.35);
+  }
+  .button:hover { filter: brightness(1.06); }
+  .button.secondary { background: transparent; color: var(--brand); box-shadow: none; border: 1.5px solid var(--brand); }
+  .hero .note { margin-top: 14px; font-size: 14px; color: var(--ink2); }
+
+  section { padding: 56px 0; }
+  section.soft { background: var(--bg-soft); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+  h2 { font-size: 30px; margin: 0 0 8px; letter-spacing: -0.01em; }
+  .lead { color: var(--ink2); margin: 0 0 32px; font-size: 18px; }
+
+  .features { display: grid; grid-template-columns: repeat(auto-fill, minmax(290px, 1fr)); gap: 20px; }
+  .feature { background: var(--card); border: 1px solid var(--line); border-radius: 14px; padding: 20px 22px; }
+  .feature h3 { margin: 0 0 6px; font-size: 18px; }
+  .feature p { margin: 0; color: var(--ink2); font-size: 15px; }
+  .feature .dot { display: inline-block; width: 10px; height: 10px; border-radius: 50%; background: var(--brand); margin-right: 8px; }
+
+  .downloads { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px; }
+  .platform { background: var(--card); border: 1px solid var(--line); border-radius: 14px; padding: 22px; display: flex; flex-direction: column; }
+  .platform.mine { border-color: var(--brand); box-shadow: 0 0 0 2px var(--brand-tint); }
+  .platform h3 { margin: 0; font-size: 20px; }
+  .platform .req { color: var(--ink2); font-size: 14px; margin: 2px 0 14px; }
+  .platform .tip { color: var(--ink2); font-size: 14px; margin: 0 0 18px; }
+  .platform .button { justify-content: center; }
+  .platform .file { font-size: 13px; color: var(--ink2); margin: auto 0 10px; word-break: break-all; }
+  code { font-family: ui-monospace, "Cascadia Code", Menlo, Consolas, monospace; font-size: 0.92em; background: var(--brand-tint); padding: 1px 5px; border-radius: 5px; }
+
+  footer { padding: 32px 0 48px; color: var(--ink2); font-size: 14px; text-align: center; }
+  footer p { margin: 4px 0; }
+
+  @media (max-width: 600px) {
+    header.hero { padding: 48px 0 40px; }
+    .hero h1 { font-size: 38px; }
+    .hero .tagline { font-size: 19px; }
+    .wrap { padding: 0 16px; }
+  }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <img src="memodock.svg" alt="" width="112" height="112">
+    <h1>MemoDock</h1>
+    <p class="tagline">Notes in a rich text editor, saved as Markdown files in a folder on your own disk. No account and no cloud.</p>
+    <div class="actions">
+      <a class="button" id="primary-download" href="#download">Download</a>
+      <a class="button secondary" href="#features">Features</a>
+    </div>
+    <p class="note" id="primary-note">For Windows, macOS and Linux.</p>
+  </div>
+</header>
+
+<section id="features">
+  <div class="wrap">
+    <h2>Features</h2>
+    <p class="lead">Your notes stay yours: plain files, on your own disk.</p>
+    <div class="features">
+      <div class="feature">
+        <h3><span class="dot"></span>Rich editor, plain Markdown files</h3>
+        <p>Formatting shows as you type: headings, bold and italic, lists and task lists, tables, code blocks, quotes, links and images. Every note is saved as a standard Markdown file.</p>
+      </div>
+      <div class="feature">
+        <h3><span class="dot"></span>Local and private</h3>
+        <p>One folder on your disk holds the vault. Nothing leaves your computer.</p>
+      </div>
+      <div class="feature">
+        <h3><span class="dot"></span>Fast search</h3>
+        <p>Matches the start of words, ignoring case and accents, with "exact phrases" and filters by notebook, tag, date and Trash. Title matches come first.</p>
+      </div>
+      <div class="feature">
+        <h3><span class="dot"></span>Notebooks</h3>
+        <p>Organize notes into notebooks, renamed or deleted from the sidebar.</p>
+      </div>
+      <div class="feature">
+        <h3><span class="dot"></span>Nothing gets lost</h3>
+        <p>Deleted notes go to the Trash for 30 days, every note keeps a revision history, the vault is backed up before anything is deleted for good, and a save that fails keeps your changes for recovery.</p>
+      </div>
+      <div class="feature">
+        <h3><span class="dot"></span>Attachments and images</h3>
+        <p>Attach any file or insert images. Ctrl+click opens a link in its own app or the browser.</p>
+      </div>
+      <div class="feature">
+        <h3><span class="dot"></span>Import, export and print</h3>
+        <p>Import Markdown and text files, also with "Open with". Export a note as Markdown, PDF or a self-contained HTML page, or print it.</p>
+      </div>
+      <div class="feature">
+        <h3><span class="dot"></span>Concurrency</h3>
+        <p>Several windows, and computers on a local network, can work in the same vault at once. A note being edited elsewhere opens read-only and says where.</p>
+      </div>
+      <div class="feature">
+        <h3><span class="dot"></span>Your look</h3>
+        <p>Light, dark or system theme, and your choice of editor font, size and highlight colours.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="soft" id="download">
+  <div class="wrap">
+    <h2>Download <span id="version"></span></h2>
+    <p class="lead">Pick your system. <a href="https://github.com/seacowz/MemoDock-releases/releases">All releases</a></p>
+    <div class="downloads">
+      <div class="platform" data-os="windows">
+        <h3>Windows</h3>
+        <p class="req">Windows 10 or 11, x64</p>
+        <p class="tip">The installer is not signed yet: at the SmartScreen warning, choose <b>More info</b>, then <b>Run anyway</b>.</p>
+        <p class="file" data-file="windows"></p>
+        <a class="button" data-asset="windows" href="https://github.com/seacowz/MemoDock-releases/releases/latest">Download installer</a>
+      </div>
+      <div class="platform" data-os="mac">
+        <h3>macOS</h3>
+        <p class="req">macOS 12 or later, Apple silicon</p>
+        <p class="tip">The app is not notarized yet: the first time, right-click it and choose <b>Open</b>.</p>
+        <p class="file" data-file="mac"></p>
+        <a class="button" data-asset="mac" href="https://github.com/seacowz/MemoDock-releases/releases/latest">Download .dmg</a>
+      </div>
+      <div class="platform" data-os="linux">
+        <h3>Ubuntu</h3>
+        <p class="req">Ubuntu 22.04 or later, x64</p>
+        <p class="tip">Open it with App Center, or run <code id="apt-command">sudo apt install ./memodock_&lt;version&gt;_amd64.deb</code></p>
+        <p class="file" data-file="linux"></p>
+        <a class="button" data-asset="linux" href="https://github.com/seacowz/MemoDock-releases/releases/latest">Download .deb</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <p>Copyright © 2026 seacowz. All rights reserved.</p>
+    <p>Built with <a href="https://www.qt.io/">Qt</a> under the LGPL v3.</p>
+  </div>
+</footer>
+
+<script>
+  // The newest release's files, from GitHub's public API (no token needed).
+  // Without it the buttons keep pointing at the latest release's page.
+  const assetPatterns = {
+    windows: /-windows-x64-setup\.exe$/,
+    mac: /-macos-arm64\.dmg$/,
+    linux: /_amd64\.deb$/,
+  };
+  const labels = { windows: "Windows", mac: "macOS", linux: "Ubuntu" };
+
+  function detectOs() {
+    const platform = (navigator.userAgentData && navigator.userAgentData.platform) || navigator.platform || "";
+    const agent = navigator.userAgent;
+    if (/android|iphone|ipad/i.test(agent)) return null;
+    if (/win/i.test(platform) || /windows/i.test(agent)) return "windows";
+    if (/mac/i.test(platform) || /mac os/i.test(agent)) return "mac";
+    if (/linux/i.test(platform) || /linux/i.test(agent)) return "linux";
+    return null;
+  }
+
+  function megabytes(bytes) {
+    return Math.round(bytes / 1048576) + " MB";
+  }
+
+  const os = detectOs();
+  if (os) {
+    document.querySelector('.platform[data-os="' + os + '"]').classList.add("mine");
+    document.getElementById("primary-download").textContent = "Download for " + labels[os];
+  }
+
+  fetch("https://api.github.com/repos/seacowz/MemoDock-releases/releases/latest")
+    .then((response) => (response.ok ? response.json() : Promise.reject(response.status)))
+    .then((release) => {
+      const version = release.tag_name.replace(/^v/, "");
+      document.getElementById("version").textContent = version;
+      for (const [key, pattern] of Object.entries(assetPatterns)) {
+        const asset = release.assets.find((a) => pattern.test(a.name));
+        if (!asset) continue;
+        document.querySelector('[data-asset="' + key + '"]').href = asset.browser_download_url;
+        document.querySelector('[data-file="' + key + '"]').textContent = asset.name + " · " + megabytes(asset.size);
+        if (key === "linux") document.getElementById("apt-command").textContent = "sudo apt install ./" + asset.name;
+        if (key === os) {
+          document.getElementById("primary-download").href = asset.browser_download_url;
+          document.getElementById("primary-note").textContent = "Version " + version + " · " + megabytes(asset.size) + " · also for the other systems below";
+        }
+      }
+    })
+    .catch(() => {});
+</script>
+</body>
+</html>

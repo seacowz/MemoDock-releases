@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   width="1024"
+   height="1024"
+   viewBox="0 0 1024 1024"
+   role="img"
+   aria-label="MemoDock icon"
+   version="1.1"
+   id="svg5"
+   sodipodi:docname="memodock.svg"
+   inkscape:version="1.3.1 (91b66b0783, 2023-11-16)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs5" />
+  <sodipodi:namedview
+     id="namedview5"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="true"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:zoom="0.62700484"
+     inkscape:cx="511.16033"
+     inkscape:cy="510.36289"
+     inkscape:window-width="2841"
+     inkscape:window-height="1682"
+     inkscape:window-x="493"
+     inkscape:window-y="184"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="svg5" />
+  <!-- Deliberately basic SVG: no filters, masks, blend modes, or external fonts. -->
+  <rect
+     width="1004.0038"
+     height="1004.0038"
+     rx="219.62582"
+     fill="#27115f"
+     id="rect1"
+     style="stroke:#896af4;stroke-width:19.9962;stroke-dasharray:none;stroke-opacity:1"
+     x="9.9981079"
+     y="9.9981079" />
+  <!-- The M is a solid, single path: the memo mark. -->
+  <path
+     d="M -2.5e-5,362.23663 C 144.77758,122.4487 425.28421,77.205692 616.81293,164.67551 764.60674,232.54001 885.25472,368.26903 1024,330.56652 V 802.60187 C 843.02795,899.12028 631.89393,825.22337 508.22972,710.60776 324.2415,540.19244 165.89099,591.46785 -2.5e-5,730.21306 Z"
+     fill="#9a7cff"
+     opacity="0.11"
+     id="path7"
+     style="stroke-width:1.5081;opacity:0.15" />
+  <ellipse
+     cx="578.18774"
+     cy="735.59064"
+     fill="#9b7bff"
+     opacity="0.18"
+     id="circle6"
+     rx="367.68887"
+     ry="227.3349"
+     style="stroke-width:1.98025" />
+  <path
+     d="M 212,737.98013 V 360.39392 c 0,-66.2069 79.65517,-99.31035 126.2069,-52.75862 L 512,481.4284 685.7931,307.6353 C 732.34483,261.08357 812,294.18702 812,360.39392 V 737.98013 H 678.55172 V 509.35944 L 559.58621,628.32495 c -25.86207,25.86207 -69.31035,25.86207 -95.17242,0 L 345.44828,509.35944 v 228.62069 z"
+     fill="#f1eeff"
+     id="path2"
+     style="fill:#896af4;fill-opacity:1;stroke:#b7a8ff;stroke-width:35;stroke-dasharray:none;stroke-opacity:1" />
+</svg>
